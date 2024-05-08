@@ -1,0 +1,18 @@
+
+def get_mask_card_account(user_data: str) -> str:
+    """Функция получает на вход строку с данными счета/карты и возвращает их в формате маски"""
+
+    if "Счет" in user_data:
+        mask_account = get_masks_for_account_number(user_data.split()[-1])
+        result = f"{user_data[0:5]} {mask_account}"
+        return result
+
+    else:
+        mask_card = get_masks_for_card_number(user_data.split()[-1])
+        result = f"{user_data[0:-16]} {mask_card}"
+        return result
+
+
+
+print(get_mask_card_account("Счет 64686473678894779589"))
+print(get_mask_card_account("MasterCard 7158300734726758"))
