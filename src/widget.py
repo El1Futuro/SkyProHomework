@@ -14,12 +14,10 @@ def get_mask_card_account(user_data: str) -> str:
         result = f"{user_data[0:-16]} {mask_card}"
         return result
 
+
 def get_date_string(user_date_time: str) -> str:
+    """ Функция получает на вход строку и выводит дату в определенном формате"""
+
     user_date = user_date_time[0:10].split("-")
     correct_date = ".".join(user_date[::-1])
     return correct_date
-
-
-print(get_mask_card_account("Счет 64686473678894779589"))
-print(get_mask_card_account("MasterCard 7158300734726758"))
-print(get_date_string("2018-07-11T02:26:18.671407"))
