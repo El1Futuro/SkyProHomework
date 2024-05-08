@@ -1,3 +1,5 @@
+from src.masks import get_masks_for_card_number, get_masks_for_account_number
+
 
 def get_mask_card_account(user_data: str) -> str:
     """Функция получает на вход строку с данными счета/карты и возвращает их в формате маски"""
@@ -11,7 +13,6 @@ def get_mask_card_account(user_data: str) -> str:
         mask_card = get_masks_for_card_number(user_data.split()[-1])
         result = f"{user_data[0:-16]} {mask_card}"
         return result
-
 
 
 print(get_mask_card_account("Счет 64686473678894779589"))
