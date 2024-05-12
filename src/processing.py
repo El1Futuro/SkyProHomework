@@ -12,8 +12,8 @@ def get_new_list(list_dict: list[dict[Any, str]], value='EXECUTED') -> list:
 
     return new_list
 
+
 def get_sorted_list(list_dict: list[dict[Any, str]], reverse=True) -> Any:
     """Функция возвращает список словарей, отсортированных по дате операции"""
-
 
     return sorted(list_dict, key=lambda my_dict: my_dict['date'], reverse=True)
