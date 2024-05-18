@@ -6,7 +6,7 @@ def test_get_new_list_empty():
 
 
 def test_get_sorted_list_empty():
-    assert get_sorted_list([], 1) == []
+    assert get_sorted_list([], True) == []
 
 
 def test_get_new_list(list_dict):

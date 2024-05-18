@@ -1,7 +1,7 @@
 from typing import Any
 
 
-def get_new_list(list_dict: list[dict[Any, Any]], value: str='EXECUTED') -> list[dict[Any, Any]]:
+def get_new_list(list_dict: list[dict[Any, Any]], value: str = 'EXECUTED') -> list[dict[Any, Any]]:
     """Функция, возвращающая только список словарей с заданным значением ключа"""
 
     new_list = []
