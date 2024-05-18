@@ -1,7 +1,7 @@
 from typing import Any
 
 
-def get_new_list(list_dict: list[dict[Any, str]], value='EXECUTED') -> list:
+def get_new_list(list_dict: list[dict[Any, Any]], value: str='EXECUTED') -> list[dict[Any, Any]]:
     """Функция, возвращающая только список словарей с заданным значением ключа"""
 
     new_list = []
@@ -14,7 +14,7 @@ def get_new_list(list_dict: list[dict[Any, str]], value='EXECUTED') -> list:
     return new_list
 
 
-def get_sorted_list(list_dict: list[dict[Any, str]], revers) -> Any:
+def get_sorted_list(list_dict: list[dict[Any, Any]], revers: bool) -> list[dict[Any, Any]]:
     """Функция возвращает список словарей, отсортированных по дате операции"""
 
     return sorted(list_dict, key=lambda my_dict: my_dict['date'], reverse=revers)

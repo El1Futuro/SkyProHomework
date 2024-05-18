@@ -1,5 +1,3 @@
-import pytest
-
 from src.processing import get_new_list, get_sorted_list
 
 
