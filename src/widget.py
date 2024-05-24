@@ -6,12 +6,12 @@ def get_mask_card_account(user_data: str) -> str:
 
     if "Счет" in user_data:
         mask_account = get_masks_for_account_number(user_data.split()[-1])
-        result = f"{user_data[0:5]} {mask_account}"
+        result = f"{user_data[0:5]}{mask_account}"
         return result
 
     else:
         mask_card = get_masks_for_card_number(user_data.split()[-1])
-        result = f"{user_data[0:-16]} {mask_card}"
+        result = f"{user_data[0:-16]}{mask_card}"
         return result
 
 
