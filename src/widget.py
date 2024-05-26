@@ -1,4 +1,4 @@
-from src.masks import get_masks_for_card_number, get_masks_for_account_number
+from src.masks import get_masks_for_account_number, get_masks_for_card_number
 
 
 def get_mask_card_account(user_data: str) -> str:
@@ -6,17 +6,17 @@ def get_mask_card_account(user_data: str) -> str:
 
     if "Счет" in user_data:
         mask_account = get_masks_for_account_number(user_data.split()[-1])
-        result = f"{user_data[0:5]} {mask_account}"
+        result = f"{user_data[0:5]}{mask_account}"
         return result
 
     else:
         mask_card = get_masks_for_card_number(user_data.split()[-1])
-        result = f"{user_data[0:-16]} {mask_card}"
+        result = f"{user_data[0:-16]}{mask_card}"
         return result
 
 
 def get_date_string(user_date_time: str) -> str:
-    """ Функция получает на вход строку и выводит дату в определенном формате"""
+    """Функция получает на вход строку и выводит дату в определенном формате"""
 
     user_date = user_date_time[0:10].split("-")
     correct_date = ".".join(user_date[::-1])
