@@ -1,4 +1,7 @@
+from src.decorators import log
+from src.widget import get_mask_card_account, get_date_string
 from src.generators import filter_by_currency, transaction_descriptions, card_number_generator
+
 
 from src.masks import get_masks_for_account_number, get_masks_for_card_number
 from src.widget import get_date_string, get_mask_card_account
@@ -11,6 +14,23 @@ print(get_masks_for_account_number("73654108430135874305"))
 print(get_mask_card_account("Счет 64686473678894779589"))
 print(get_mask_card_account("Visa Platinum 8990922113665229"))
 print(get_date_string("2018-07-11T02:26:18.671407"))
+
+
+
+@log(filename="mylog.txt")
+def my_function(x, y):
+    return x + y
+
+
+my_function(1, 2)
+
+
+@log()
+def my_function_error(x, y):
+    return x / y
+
+
+my_function_error(2, 0)
 
 print()
 
