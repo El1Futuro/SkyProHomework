@@ -1,6 +1,15 @@
+
+import os
+from src.utils import get_list_transactions
+from src.widget import get_mask_card_account, get_date_string
+from src.external_api import get_amount_rub
+
+
+
 from src.decorators import log
 from src.widget import get_mask_card_account, get_date_string
 from src.generators import filter_by_currency, transaction_descriptions, card_number_generator
+
 
 
 from src.masks import get_masks_for_account_number, get_masks_for_card_number
@@ -15,6 +24,19 @@ print(get_mask_card_account("Счет 64686473678894779589"))
 print(get_mask_card_account("Visa Platinum 8990922113665229"))
 print(get_date_string("2018-07-11T02:26:18.671407"))
 
+
+
+print()
+
+json_file_path = os.path.join("data", "operations.json")
+transactions = get_list_transactions(json_file_path)
+print(transactions)
+
+print()
+
+for transaction in transactions:
+    rub_amount = get_amount_rub(transaction)
+    print(f"Транзакция в RUB: {rub_amount}")
 
 
 @log(filename="mylog.txt")
@@ -98,7 +120,6 @@ print()
 
 for card_number in card_number_generator(1, 10):
     print(card_number)
-
 
 print(get_new_list([{'id': 41428829, 'state': 'EXECUTED', 'date': '2019-07-03T18:35:29.512364'},
                     {'id': 939719570, 'state': 'EXECUTED', 'date': '2018-06-30T02:08:58.425572'},
