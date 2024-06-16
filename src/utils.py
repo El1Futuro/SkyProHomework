@@ -24,4 +24,5 @@ def get_list_transactions(json_file_path: str) -> list[dict]:
 
     except Exception:
         logger.error("Ошибка")
+
         return []

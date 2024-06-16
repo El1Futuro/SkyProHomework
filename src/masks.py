@@ -27,6 +27,7 @@ def get_masks_for_account_number(account_number: str) -> Any:
 
     else:
         logger.info(f"Задаём формат маски для номера банковского счета {account_number}")
+
         account_with_masks = account_number.replace(account_number[:-4], "*" * 2)
 
     return account_with_masks
