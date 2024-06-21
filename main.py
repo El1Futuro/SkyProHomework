@@ -1,10 +1,9 @@
 import os
 
-from src.utils import get_list_transactions, get_transactions_from_csv, get_transactions_from_excel
 from src.external_api import get_amount_rub
 from src.masks import get_masks_for_account_number, get_masks_for_card_number
+from src.utils import get_list_transactions, get_transactions_from_csv, get_transactions_from_excel
 from src.widget import get_date_string, get_mask_card_account
-
 
 print(get_masks_for_card_number("7000792289606361"))
 print(get_masks_for_account_number("73654108430135874305"))

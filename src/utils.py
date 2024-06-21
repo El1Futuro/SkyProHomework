@@ -52,6 +52,7 @@ def get_transactions_from_csv(csv_file_path: str) -> Any:
 
         return []
 
+
 def get_transactions_from_excel(excel_file_path: str) -> Any:
     """Функция принимает путь до EXCEL-файла и возвращает данные финансовых транзакций"""
     try:

@@ -1,6 +1,7 @@
 import unittest
+from unittest.mock import MagicMock, mock_open, patch
+
 import pandas as pd
-from unittest.mock import MagicMock, patch, mock_open
 
 from src.utils import get_list_transactions, get_transactions_from_csv, get_transactions_from_excel
 
@@ -30,13 +31,12 @@ class TestGetTransactionsFromCsv(unittest.TestCase):
         csv_transactions = get_transactions_from_csv("nonexistent_file.csv")
         self.assertEqual(csv_transactions, [])
 
-
     @patch(
         "builtins.open",
         new_callable=mock_open,
         read_data="id;state;date;amount;currency_name;currency_code;from;to;description\n"
-                  "4699552;EXECUTED;2022-03-23T08:29:37Z;23423;Peso;PHP;Discover 7269000803370165;"
-                  "American Express 1963030970727681;Перевод с карты на карту\n",
+        "4699552;EXECUTED;2022-03-23T08:29:37Z;23423;Peso;PHP;Discover 7269000803370165;"
+        "American Express 1963030970727681;Перевод с карты на карту\n",
     )
     def test_get_transactions_from_csv_new(self, mock_file: MagicMock) -> None:
         result = get_transactions_from_csv("test.csv")
@@ -57,21 +57,10 @@ class TestGetTransactionsFromCsv(unittest.TestCase):
             ],
         )
 
-    # @patch("pd.read_excel.open")
-    # def test_get_transactions_from_excel_empty_file(self, mock_open: MagicMock) -> None:
-    #     mock_open.return_value.__enter__.return_value.pd.read_excel.return_value = ""
-    #     list_transactions = get_transactions_from_excel("test_file.json")
-    #     self.assertEqual(list_transactions, [])
-
-    @patch(
-            "builtins.open",
-            new_callable=mock_open,
-            read_data="")
-    def test_get_transactions_from_csv_new(self, mock_file: MagicMock) -> None:
+    @patch("builtins.open", new_callable=mock_open, read_data="")
+    def test_get_transactions_from_csv_new_1(self, mock_file: MagicMock) -> None:
         result = get_transactions_from_csv("test.csv")
-        self.assertEqual(
-                result,
-                [])
+        self.assertEqual(result, [])
 
     data = {
         "id": [4699552.0],
@@ -90,7 +79,7 @@ class TestGetTransactionsFromCsv(unittest.TestCase):
     df.to_excel("test.xlsx", index=False)
 
     @patch("pandas.read_excel", return_value=df)
-    def test_get_transactions_from_excel(self, mock_read_excel: MagicMock) -> None:
+    def test_get_transactions_from_excel(self, mock_read: MagicMock) -> None:
         result = get_transactions_from_excel("test.xlsx")
         self.assertEqual(
             result,
