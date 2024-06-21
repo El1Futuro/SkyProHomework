@@ -37,6 +37,8 @@ git clone https://github.com/El1Futuro/SkyProHomework.git
 ~~~
 2. Установите зависимости:
 ```
+pip freeze > requirements.txt
+```
 pip install -r requirements.txt
 ```
 ## Использование:
