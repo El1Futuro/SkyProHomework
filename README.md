@@ -39,6 +39,7 @@ git clone https://github.com/El1Futuro/SkyProHomework.git
 ```
 pip freeze > requirements.txt
 ```
+```
 pip install -r requirements.txt
 ```
 ## Использование:
