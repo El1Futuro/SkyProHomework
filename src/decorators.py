@@ -1,5 +1,4 @@
 import functools
-
 from typing import Any
 
 
@@ -26,6 +25,7 @@ def log(filename: Any = None) -> Any:
                 else:  # Вывод лога в консоль
                     print(log_message)
                 raise
+
         return inner
 
     return wrapper
