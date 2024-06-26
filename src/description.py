@@ -1,9 +1,11 @@
+import os
 from collections import Counter
 
 from src.utils import get_list_transactions
 
-json_file_path = r"C:\Users\User\PycharmProjects\SecondHomework1\data\operations.json"
-list_transactions = get_list_transactions(json_file_path)
+current_dir = os.path.dirname(os.path.abspath(__file__))
+file_path = os.path.join(current_dir, "../data", "operations.json")
+list_transactions = get_list_transactions(file_path)
 
 
 def get_categories(list_transactions: list) -> list:

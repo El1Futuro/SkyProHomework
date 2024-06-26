@@ -1,5 +1,6 @@
 import pytest
-from src.processing import get_sorted_list, filter_transactions_by_state
+
+from src.processing import filter_transactions_by_state, get_sorted_list
 
 
 def test_filter_transactions_by_state_empty() -> None:
@@ -16,7 +17,7 @@ def list_transactions() -> list:
         {"id": 441945886, "state": "EXECUTED", "date": "2019-08-26T10:50:58.294041"},
         {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
         {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
-        {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"}
+        {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
     ]
 
 
