@@ -24,22 +24,7 @@ print(get_mask_card_account("Счет 64686473678894779589"))
 print(get_mask_card_account("Visa Platinum 8990922113665229"))
 print(get_date_string("2018-07-11T02:26:18.671407"))
 print()
-# csv_file_path = os.path.join("data", "transactions.csv")
-# csv_transactions = get_transactions_from_csv(csv_file_path)
-# print(csv_transactions)
-print()
-# excel_file_path = os.path.join("data", "transactions_excel.xlsx")
-# excel_transactions = get_transactions_from_excel(excel_file_path)
-# print(excel_transactions)
-print()
-# json_file_path = os.path.join("data", "operations.json")
-# transactions = get_list_transactions(json_file_path)
-# print(transactions)
-print()
-# for transaction in transactions:
-#     rub_amount = get_amount_rub(transaction)
-#     print(f"Транзакция в RUB: {rub_amount}")
-print()
+
 state_1 = "EXECUTED"
 state_2 = "CANCELED"
 state_3 = "PENDING"

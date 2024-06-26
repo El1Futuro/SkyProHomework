@@ -1,0 +1,5 @@
+2024-06-20 21:17:25,457 - utils - INFO: Открытие csv файла data\transactions.csv
+2024-06-20 21:17:25,458 - utils - INFO: Проверяем, что файл data\transactions.csv не пустой
+2024-06-20 21:17:26,008 - utils - INFO: Проверяем, что файл data\transactions_excel.xlsx не пустой
+2024-06-20 21:17:26,033 - utils - INFO: Открытие json файла data\operations.json
+2024-06-20 21:17:26,049 - utils - INFO: Проверяем, что файл data\operations.json не пустой
