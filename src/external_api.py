@@ -1,9 +1,8 @@
 import os
-
+import requests
 from typing import Any
 
 from dotenv import load_dotenv
-from requests import get
 
 load_dotenv()
 API_KEY = os.getenv("API_KEY")
@@ -19,7 +18,7 @@ def get_amount_rub(transactions: dict) -> Any:
     if currency == "RUB":
         return amount
     elif currency == "USD" or currency == "EUR":
-        response = get(API_URL.format(to="RUB", from_=currency, amount=amount), headers={"apikey": API_KEY})
+        response = requests.get(API_URL.format(to="RUB", from_=currency, amount=amount), headers={"apikey": API_KEY})
         if response.status_code == 200:
             data = response.json()
             return data["result"]
