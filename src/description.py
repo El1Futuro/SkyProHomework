@@ -19,7 +19,7 @@ def get_categories(list_transactions: list) -> list:
 def count_operations_by_category(list_transactions: list, list_categories: list) -> dict:
     """Функция выводит словарь, в котором ключи — это названия категорий,
     а значения — это количество операций в каждой категории⠀"""
-    counter = Counter()
+    counter: dict = Counter()
     for transaction in list_transactions:
         if "description" in transaction:
             if transaction["description"] in list_categories:
