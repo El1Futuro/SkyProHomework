@@ -24,8 +24,10 @@ def count_operations_by_category(list_transactions: list, list_categories: list)
         if "description" in transaction:
             if transaction["description"] in list_categories:
                 counter[transaction["description"]] += 1
-    print(dict(counter))
+    return dict(counter)
 
 
-get_categories(list_transactions)
-count_operations_by_category(list_transactions, get_categories(list_transactions))
+if __name__ == "__main__":
+
+    get_categories(list_transactions)
+    print(count_operations_by_category(list_transactions, get_categories(list_transactions)))
