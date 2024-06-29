@@ -67,3 +67,51 @@ def get_transactions_from_excel(excel_file_path: str) -> Any:
     except Exception as e:
         logger.error("Ошибка", e)
         return []
+
+
+def transaction_csv_utils(data_list: list) -> list[dict]:
+    """Обрабатывает словарь полученный из file.csv и преобразует его в список формата json"""
+    list_transactions = []
+    for transaction in data_list:
+        if transaction["id"] != "":
+            result = {
+                "id": int(transaction["id"]),
+                "state": transaction["state"],
+                "date": transaction["date"],
+                "operationAmount": {
+                    "amount": float(transaction["amount"]),
+                    "currency": {"name": transaction["currency_name"], "code": transaction["currency_code"]},
+                },
+                "description": transaction["description"],
+                "from": transaction["from"],
+                "to": transaction["to"],
+            }
+
+        else:
+            result = {}
+        list_transactions.append(result)
+    return list_transactions
+
+
+def transaction_xlsx_utils(excel_list: list) -> list[dict]:
+    """Обрабатывает словарь полученный из file.xlsx и преобразует его в список формата json"""
+    list_transactions = []
+    for transaction in excel_list:
+        if pd.notnull(transaction["id"]):
+            result = {
+                "id": int(transaction["id"]),
+                "state": transaction["state"],
+                "date": transaction["date"],
+                "operationAmount": {
+                    "amount": float(transaction["amount"]),
+                    "currency": {"name": transaction["currency_name"], "code": transaction["currency_code"]},
+                },
+                "description": transaction["description"],
+                "from": transaction["from"],
+                "to": transaction["to"],
+            }
+            list_transactions.append(result)
+        else:
+            result = {}
+            list_transactions.append(result)
+    return list_transactions
